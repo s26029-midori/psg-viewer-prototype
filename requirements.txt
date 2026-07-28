@@ -1,0 +1,4 @@
+streamlit==1.60.0
+mne==1.12.1
+plotly==6.9.0
+pandas==3.0.5

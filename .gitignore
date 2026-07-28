@@ -1,0 +1,14 @@
+# データファイル(容量が大きい・環境ごとに異なるためGit管理しない)
+data/
+
+# 投票結果(個人のローカル実行結果なのでGit管理しない)
+votes.csv
+
+# Python関連
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# OS関連
+.DS_Store
