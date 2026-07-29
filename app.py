@@ -15,16 +15,22 @@ import streamlit as st
 from utils.data_loader import get_epoch, list_edf_files, load_raw
 from utils.voting import REASON_OPTIONS, STAGE_OPTIONS, save_vote
 
-# ここだけ書き換えれば動く2箇所(実際の保存場所に合わせて変更)
+# ここだけ書き換えれば動く3箇所(実際の保存場所に合わせて変更)
 ORIGINAL_DATA_DIR = Path("data/psg_ipa_original")
 PERTURBED_DATA_DIR = Path("data/perturbed")
+SAMPLE_DATA_DIR = Path("data/sample")
 
 st.set_page_config(page_title="PSG波形ビューワー", layout="wide")
 st.title("PSG波形ビューワー")
 
 # --- データ選択 ---
-source = st.sidebar.radio("データの種類", ["オリジナル", "人工迷いエポック"])
-data_dir = ORIGINAL_DATA_DIR if source == "オリジナル" else PERTURBED_DATA_DIR
+source = st.sidebar.radio("データの種類", ["オリジナル", "人工迷いエポック", "サンプル(公開用)"])
+if source == "オリジナル":
+    data_dir = ORIGINAL_DATA_DIR
+elif source == "人工迷いエポック":
+    data_dir = PERTURBED_DATA_DIR
+else:
+    data_dir = SAMPLE_DATA_DIR
 
 edf_files = list_edf_files(data_dir)
 if not edf_files:
