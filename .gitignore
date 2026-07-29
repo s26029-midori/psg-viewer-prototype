@@ -1,5 +1,8 @@
 # データファイル(容量が大きい・環境ごとに異なるためGit管理しない)
-data/
+# ただし出典表示のREADMEと、GitHub公開用の小さいサンプルデータだけは例外的に管理する
+data/*
+!data/README.md
+!data/sample/
 
 # 投票結果(個人のローカル実行結果なのでGit管理しない)
 votes.csv
